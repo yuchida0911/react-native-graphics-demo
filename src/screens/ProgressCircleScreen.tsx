@@ -41,6 +41,10 @@ export const ProgressCircleScreen = () => {
     runTiming(progress, 0.8);
   }, [progress]);
 
+  const onCancel = useCallback(() => {
+    runTiming(progress, 0);
+  }, [progress]);
+
   const start1 = polar2Canvas(radius, convertDegToRad(225));
   const end1 = polar2Canvas(radius, convertDegToRad(-45));
 
@@ -78,7 +82,7 @@ export const ProgressCircleScreen = () => {
         <Path path={hLine} strokeWidth={1} style="stroke" />
         <Path
           path={path2}
-          color="purple"
+          color="gray"
           style="stroke"
           strokeWidth={20}
           strokeJoin="round"
@@ -86,7 +90,7 @@ export const ProgressCircleScreen = () => {
         />
         <Path
           path={path1}
-          color="lightblue"
+          color="orangered"
           style="stroke"
           strokeWidth={20}
           strokeJoin="round"
@@ -95,6 +99,7 @@ export const ProgressCircleScreen = () => {
         />
       </Canvas>
       <Button onPress={onPress} title="animate" />
+      <Button onPress={onCancel} title="reset" />
     </View>
   );
 };
