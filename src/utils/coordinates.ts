@@ -1,5 +1,13 @@
 import { Vector } from "@shopify/react-native-skia";
 
+/**
+ * Cartesian Coordinates set its origin (0, 0) to the center of the View or Screen
+ * Canvas Coordinate set is origin to the top left corner of the View or Screen
+ * Because Cartesian is more intuitive and easier for calculating vectors,
+ * Following utilites are prepared.
+ */
+
+/** convert Cartesian coordinate to Canvas coordinate */
 const convertCartesianToCanvas = (v: Vector, canvasSize: number) => {
   return {
     x: v.x + canvasSize / 2,
@@ -7,6 +15,7 @@ const convertCartesianToCanvas = (v: Vector, canvasSize: number) => {
   };
 };
 
+/** calculate Cartesian coordiate(x, y) from radius and angle */
 const convertPolarToCartesian = (radius: number, theta: number) => {
   "worklet";
   return {
@@ -15,6 +24,7 @@ const convertPolarToCartesian = (radius: number, theta: number) => {
   };
 };
 
+/** calculate Canvas coordinate(x, y) from the radius and the angle */
 const convertPolarToCanvas = (
   radius: number,
   theta: number,
