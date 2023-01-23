@@ -9,7 +9,6 @@ import React from "react";
 import { View, ViewStyle } from "react-native";
 import { END_RADIAN, START_RADIAN } from "../../constants";
 import { CoordinatesUtil } from "../../utils/coordinates";
-const sfMono = require("./SF-Mono-Medium.otf");
 
 type Props = {
   progress: SkiaMutableValue<number>;
