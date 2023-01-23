@@ -3,6 +3,7 @@ import {
   LinearGradient,
   Path,
   SkiaMutableValue,
+  SweepGradient,
   vec,
 } from "@shopify/react-native-skia";
 import React from "react";
@@ -25,7 +26,7 @@ export const ProgressCircle = ({
   progress,
   size = 200,
   strokeWidth = STROKE_WIDTH,
-  gradientColors = ["#FA7B05", "#FFE600"],
+  gradientColors = ["#FFE600", "#FA7B05", "#FFE600"],
   containerStyle,
 }: Props) => {
   const radius = size / 2 - strokeWidth / 2;
@@ -75,11 +76,7 @@ export const ProgressCircle = ({
           strokeJoin="round"
           strokeCap="round"
         >
-          <LinearGradient
-            start={GRADIENT_POSITION.start}
-            end={GRADIENT_POSITION.end}
-            colors={gradientColors}
-          />
+          <SweepGradient c={vec(128, 145)} colors={gradientColors} />
         </Path>
       </Canvas>
     </View>
