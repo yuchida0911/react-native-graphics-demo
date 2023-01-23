@@ -10,6 +10,7 @@ import React from "react";
 import { View, ViewStyle } from "react-native";
 import { END_RADIAN, START_RADIAN } from "../../constants";
 import { CoordinatesUtil } from "../../utils/coordinates";
+import { XYAxis } from "./XYAxis";
 
 type Props = {
   progress: SkiaMutableValue<number>;
@@ -58,7 +59,8 @@ export const ProgressCircle = ({
           },
         ]}
       >
-        {/* <XYAxis size={size} /> */}
+        {/* use XYAxis component to see how angles are used to calculate the position of arc's start/end more intuitively*/}
+        <XYAxis size={size} />
 
         <Path
           path={path2}
