@@ -2,11 +2,22 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { ProgressCircleScreen } from "./src/screens/ProgressCircleScreen";
 import { NavigationContainer, useNavigation } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import {
+  createNativeStackNavigator,
+  NativeStackNavigationProp,
+} from "@react-navigation/native-stack";
 import { Button, View } from "react-native";
 
+type RootStackParamList = {
+  Home: undefined;
+  ProgressCircleScreen: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
 const HomeScreen = () => {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   return (
     <View style={{ flex: 1 }}>
       <Button
@@ -17,7 +28,6 @@ const HomeScreen = () => {
   );
 };
 
-const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
