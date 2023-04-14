@@ -1,12 +1,13 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { StatusBar } from "expo-status-bar";
 import { HomeScreen } from "../screens/HomeScreen";
 import { ProgressCircleScreen } from "../screens/ProgressCircleScreen";
+import { ShaderScreen } from "../screens/ShaderScreen";
 
 export type RootStackParamList = {
   Home: undefined;
   ProgressCircleScreen: undefined;
+  ShaderScreen: undefined;
 };
 
 export const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -20,6 +21,7 @@ export const RootStack = () => {
           name="ProgressCircleScreen"
           component={ProgressCircleScreen}
         />
+        <Stack.Screen name="ShaderScreen" component={ShaderScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

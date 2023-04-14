@@ -1,0 +1,1 @@
+export image01 from './gym.png';
